@@ -1,0 +1,51 @@
+<div
+  class="min-h-screen bg-gradient-to-r from-blue-200 to-blue-500 flex items-center justify-center p-6"
+>
+  <div class="max-w-md w-full p-6 bg-white rounded-lg shadow-lg">
+    <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">
+      Task Manager
+    </h1>
+
+    <div class="flex mb-4">
+      <input
+        [(ngModel)]="taskTitle"
+        placeholder="Add task"
+        class="border border-gray-300 p-3 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-600 w-full transition duration-200"
+      />
+      <button
+        (click)="addTask()"
+        class="bg-blue-600 text-white p-3 rounded-r-md hover:bg-blue-700 transition duration-200 transform hover:scale-105"
+      >
+        Add
+      </button>
+    </div>
+
+    <ul class="mt-6">
+      <li
+        *ngFor="let task of tasks; let i = index"
+        class="flex justify-between items-center mb-4 p-4 bg-white rounded-lg shadow hover:shadow-md transition duration-200"
+        [ngClass]="{ 'opacity-0': !task.visible, 'opacity-100': task.visible }"
+        style="transition: opacity 300ms"
+      >
+        <input
+          type="checkbox"
+          [checked]="task.completed"
+          (change)="toggleTaskCompletion(task)"
+          class="form-checkbox h-5 w-5 text-blue-600 focus:ring-blue-500"
+        />
+        <span
+          [ngClass]="{ 'line-through text-gray-500': task.completed }"
+          class="flex-1 ml-3 text-gray-800"
+        >
+          {{ task.title }}
+        </span>
+        <button
+          (click)="deleteTask(task.id)"
+          class="text-red-600 hover:text-red-800 transition duration-200 transform hover:scale-105"
+        >
+          Delete
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
