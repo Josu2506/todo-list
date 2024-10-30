@@ -19,13 +19,39 @@
         Add
       </button>
     </div>
+    <div
+      *ngIf="showErrorMessage"
+      @errorMessageAnimation
+      class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+      role="alert"
+    >
+      <span class="block sm:inline">{{ errorMessage }}</span>
+      <button
+        (click)="showErrorMessage = false"
+        class="absolute top-2 right-2 p-2 text-red-700 hover:text-red-900"
+      >
+        <svg
+          class="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          ></path>
+        </svg>
+      </button>
+    </div>
 
     <ul class="mt-6">
       <li
-        *ngFor="let task of tasks; let i = index"
+        *ngFor="let task of tasks; trackBy: trackTaskById"
         class="flex justify-between items-center mb-4 p-4 bg-white rounded-lg shadow hover:shadow-md transition duration-200"
-        [ngClass]="{ 'opacity-0': !task.visible, 'opacity-100': task.visible }"
-        style="transition: opacity 300ms"
+        [@taskAnimation]="task"
       >
         <input
           type="checkbox"

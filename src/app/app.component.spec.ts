@@ -9,7 +9,6 @@ describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
         AppComponent // Asegúrate de importar correctamente el componente
       ],
     }).compileComponents();
@@ -31,11 +30,11 @@ describe('AppComponent', () => {
   });
 
   it(`should have as title 'todo-list'`, () => {
-    expect(app.title).toEqual('todo-list');
+    expect(app.title).toEqual('toDo-list-app');
   });
 
   it('should render title', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('span')?.textContent).toContain('todo-list app is running!');
+    expect(compiled.querySelector('span')?.textContent).toContain('toDo-list-app');
   });
 });

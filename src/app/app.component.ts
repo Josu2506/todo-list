@@ -9,5 +9,5 @@ import { TaskComponent } from './task/task.component';
   imports: [TaskComponent]
 })
 export class AppComponent {
-  title = 'todo-list';
+  title = 'toDo-list-app';
 }

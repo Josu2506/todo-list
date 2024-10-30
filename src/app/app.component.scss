@@ -1,0 +1,22 @@
+
+
+h1 {
+  font-family: system-ui;
+}
+
+span {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+span h1 {
+  color: white;
+  font-weight: 700;
+  font-size: 1.85rem;
+}
